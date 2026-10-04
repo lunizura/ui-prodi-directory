@@ -1,0 +1,16 @@
+{
+  "title": "Universitas Indonesia Study Programs & Accreditation Directory",
+  "university": "Universitas Indonesia",
+  "acronym": "UI",
+  "last_updated_iso": "2026-10-04T08:21:24.999613",
+  "last_updated_date": "04 October 2026",
+  "total_prodi": 85,
+  "total_fakultas": 17,
+  "total_s1": 60,
+  "total_vokasi": 12,
+  "total_pascasarjana": 13,
+  "total_unggul": 85,
+  "total_akreditasi_internasional": 62,
+  "source": "https://penerimaan.ui.ac.id",
+  "license": "MIT"
+}
