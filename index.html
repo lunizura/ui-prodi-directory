@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Direktori Program Studi &amp; Akreditasi UI | Universitas Indonesia</title>
+  <meta name="description" content="Pusat basis data terbuka dan direktori interaktif seluruh program studi, daya tampung SNBP/SNBT/SIMAK UI, akreditasi nasional dan internasional di Universitas Indonesia.">
+  <meta name="keywords" content="prodi ui, jurusan ui, akreditasi ui, daya tampung ui, snbp ui, snbt ui, simak ui, universitas indonesia, ukt ui, fasilkom ui, fk ui, ft ui, feb ui">
+  <meta name="author" content="izu">
+
+  <!-- Open Graph / Social Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Direktori Program Studi &amp; Akreditasi Universitas Indonesia (UI)">
+  <meta property="og:description" content="Eksplorasi lengkap 85 program studi, 17 fakultas, kampus Depok &amp; Salemba, serta akreditasi internasional di Universitas Indonesia.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            uiyellow: {
+              400: '#fde047',
+              500: '#eab308',
+              600: '#ca8a04',
+            },
+            uiblue: {
+              800: '#1e3a8a',
+              900: '#0f172a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .badge-unggul {
+      background-color: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+    }
+    .badge-internasional {
+      background-color: #f0fdf4;
+      color: #166534;
+      border: 1px solid #86efac;
+    }
+    .badge-s1 {
+      background-color: #eff6ff;
+      color: #1e40af;
+      border: 1px solid #bfdbfe;
+    }
+    .badge-vokasi {
+      background-color: #fdf4ff;
+      color: #86198f;
+      border: 1px solid #f5d0fe;
+    }
+    .badge-pasca {
+      background-color: #fff7ed;
+      color: #9a3412;
+      border: 1px solid #fed7aa;
+    }
+    .badge-kesehatan {
+      background-color: #fff1f2;
+      color: #9f1239;
+      border: 1px solid #fecdd3;
+    }
+    .badge-saintek {
+      background-color: #f0f9ff;
+      color: #0369a1;
+      border: 1px solid #bae6fd;
+    }
+    .badge-soshum {
+      background-color: #fefce8;
+      color: #854d0e;
+      border: 1px solid #fef08a;
+    }
+    .badge-multidisiplin {
+      background-color: #faf5ff;
+      color: #6b21a8;
+      border: 1px solid #e9d5ff;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans">
+
+  <!-- Top Announcement Bar -->
+  <header class="bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center space-x-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-yellow-400"></span>
+        <span id="announcement-text">Basis Data Resmi Direktori Program Studi Universitas Indonesia &bull; Veritas, Probitas, Iustitia</span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <span class="text-slate-400" id="announcement-updated">Diperbarui: 04 Oktober 2026</span>
+        <button id="lang-toggle-btn" class="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition" title="Ganti Bahasa / Switch Language">
+          <svg class="w-3.5 h-3.5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
+          <span id="lang-label-id" class="font-bold text-yellow-400">ID</span>
+          <span class="text-slate-500">|</span>
+          <span id="lang-label-en" class="font-normal text-slate-400">EN</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Navbar -->
+  <nav class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-yellow-500 to-amber-400 flex items-center justify-center text-slate-900 shadow-sm font-black text-sm tracking-tight text-center leading-none border border-amber-300">
+            UI<br><span class="text-[9px] font-bold">1849</span>
+          </div>
+          <div>
+            <h1 id="nav-title" class="text-base sm:text-lg font-extrabold text-slate-900 leading-tight">
+              Direktori Program Studi &amp; Akreditasi UI
+            </h1>
+            <p id="nav-subtitle" class="text-xs text-slate-500 hidden sm:block">
+              Universitas Indonesia &bull; Kampus Depok &amp; Salemba &bull; SNBP, SNBT, SIMAK UI
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <a href="https://penerimaan.ui.ac.id" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold text-amber-900 bg-amber-100 hover:bg-amber-200 rounded-lg transition border border-amber-200">
+            <span>Portal Penerimaan UI</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+          <a href="https://github.com/lunizura/ui-prodi-directory" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition border border-slate-200">
+            <svg class="w-4 h-4 text-slate-800" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            <span class="hidden sm:inline">GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero & Quick Stats Section -->
+  <section class="bg-gradient-to-b from-amber-50/70 via-white to-slate-50 border-b border-slate-200 py-8 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-3xl mb-6">
+        <div class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-900 border border-amber-300 mb-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
+          <span id="hero-pill">Pusat Informasi Akademik &amp; Daya Tampung Resmi</span>
+        </div>
+        <h2 id="hero-title" class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+          Eksplorasi Program Studi &amp; Daya Tampung Universitas Indonesia
+        </h2>
+        <p id="hero-desc" class="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed">
+          Temukan informasi komprehensif mengenai seluruh jenjang pendidikan (S1, Vokasi D3/D4, Pascasarjana S2/S3), daya tampung jalur seleksi SNBP, SNBT, dan SIMAK UI, akreditasi internasional (AACSB, ABET, IABEE, AUN-QA), kurikulum, serta prospek karir di Universitas Indonesia.
+        </p>
+      </div>
+
+      <!-- Quick Metrics Cards -->
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
+        <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+          <p id="stat-prodi-lbl" class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Program Studi</p>
+          <div class="mt-1 flex items-baseline space-x-2">
+            <span class="text-2xl sm:text-3xl font-extrabold text-slate-900" id="stat-prodi-val">85</span>
+            <span class="text-xs text-slate-500">Semua Jenjang</span>
+          </div>
+        </div>
+        <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+          <p id="stat-s1-lbl" class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Sarjana (S1)</p>
+          <div class="mt-1 flex items-baseline space-x-2">
+            <span class="text-2xl sm:text-3xl font-extrabold text-blue-700" id="stat-s1-val">60</span>
+            <span class="text-xs text-slate-500">Program Sarjana</span>
+          </div>
+        </div>
+        <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+          <p id="stat-vokasi-lbl" class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Vokasi (D3/D4)</p>
+          <div class="mt-1 flex items-baseline space-x-2">
+            <span class="text-2xl sm:text-3xl font-extrabold text-purple-700" id="stat-vokasi-val">12</span>
+            <span class="text-xs text-slate-500">Terapan &amp; Diploma</span>
+          </div>
+        </div>
+        <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+          <p id="stat-fakultas-lbl" class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Fakultas &amp; Sekolah</p>
+          <div class="mt-1 flex items-baseline space-x-2">
+            <span class="text-2xl sm:text-3xl font-extrabold text-amber-700" id="stat-fakultas-val">17</span>
+            <span class="text-xs text-slate-500">Unit Pengelola</span>
+          </div>
+        </div>
+        <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm col-span-2 lg:col-span-1">
+          <p id="stat-intl-lbl" class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Akreditasi Global</p>
+          <div class="mt-1 flex items-baseline space-x-2">
+            <span class="text-2xl sm:text-3xl font-extrabold text-emerald-600" id="stat-intl-val">62</span>
+            <span class="text-xs text-slate-500">AACSB/ABET/AUN</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full space-y-6">
+
+    <!-- Filter Control Bar -->
+    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3">
+        <!-- Search input -->
+        <div class="sm:col-span-2 lg:col-span-2">
+          <label id="lbl-search" class="block text-xs font-semibold text-slate-600 mb-1">Cari Program Studi / Fakultas:</label>
+          <input type="text" id="filter-search" oninput="renderDirectory()" placeholder="Contoh: Kedokteran, Ilmu Komputer, Depok, FT..." class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-amber-500">
+        </div>
+        <!-- Jenjang Filter -->
+        <div>
+          <label id="lbl-jenjang" class="block text-xs font-semibold text-slate-600 mb-1">Jenjang Pendidikan:</label>
+          <select id="filter-jenjang" onchange="renderDirectory()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-amber-500">
+            <option value="ALL">Semua Jenjang</option>
+            <option value="S1">Sarjana (S1)</option>
+            <option value="D4">Sarjana Terapan (D4)</option>
+            <option value="D3">Diploma 3 (D3)</option>
+            <option value="S2">Magister (S2)</option>
+            <option value="S3">Doktor (S3)</option>
+          </select>
+        </div>
+        <!-- Fakultas Filter -->
+        <div>
+          <label id="lbl-fakultas" class="block text-xs font-semibold text-slate-600 mb-1">Fakultas / Sekolah:</label>
+          <select id="filter-fakultas" onchange="renderDirectory()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-amber-500">
+            <option value="ALL">Semua Fakultas (17 Unit)</option>
+            <!-- Dynamically populated -->
+          </select>
+        </div>
+        <!-- Rumpun Filter -->
+        <div>
+          <label id="lbl-rumpun" class="block text-xs font-semibold text-slate-600 mb-1">Rumpun Keilmuan:</label>
+          <select id="filter-rumpun" onchange="renderDirectory()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-amber-500">
+            <option value="ALL">Semua Rumpun</option>
+            <option value="Saintek">Saintek (IPA)</option>
+            <option value="Soshum">Soshum (IPS)</option>
+            <option value="Kesehatan">Ilmu Kesehatan</option>
+            <option value="Multidisiplin">Multidisiplin</option>
+          </select>
+        </div>
+        <!-- Lokasi Kampus Filter -->
+        <div>
+          <label id="lbl-lokasi" class="block text-xs font-semibold text-slate-600 mb-1">Lokasi Kampus:</label>
+          <select id="filter-lokasi" onchange="renderDirectory()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-amber-500">
+            <option value="ALL">Semua Kampus</option>
+            <option value="Depok">Kampus UI Depok</option>
+            <option value="Salemba">Kampus UI Salemba</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Secondary Controls & View Toggle -->
+      <div class="flex items-center justify-between pt-3 border-t border-slate-100 flex-wrap gap-2 text-xs">
+        <div class="flex items-center space-x-3">
+          <label class="inline-flex items-center space-x-1.5 cursor-pointer text-slate-600">
+            <input type="checkbox" id="filter-intl" onchange="renderDirectory()" class="rounded border-slate-300 text-amber-600 focus:ring-amber-500">
+            <span id="lbl-intl-only" class="font-medium">Hanya Akreditasi Internasional (AACSB / ABET / AUN)</span>
+          </label>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <div class="text-slate-500 hidden sm:block">
+            <span id="lbl-showing">Menampilkan</span> <strong id="filter-count-val" class="text-slate-800">0</strong> <span id="lbl-of">dari</span> <strong id="filter-total-val" class="text-slate-800">0</strong> program studi.
+          </div>
+          <div class="inline-flex rounded-xl bg-slate-100 p-1 border border-slate-200 font-semibold">
+            <button id="view-grid-btn" onclick="setViewMode('grid')" class="px-2.5 py-1 rounded-lg bg-white text-slate-900 shadow-sm transition">Kartu</button>
+            <button id="view-table-btn" onclick="setViewMode('table')" class="px-2.5 py-1 rounded-lg text-slate-600 transition">Tabel</button>
+          </div>
+          <button onclick="resetFilters()" id="btn-reset-filters" class="px-3 py-1 text-slate-600 hover:text-rose-600 transition font-medium">Reset Filter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Directory Cards Grid Container -->
+    <div id="cards-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Dynamically injected prodi cards -->
+    </div>
+
+    <!-- Directory Table Container -->
+    <div id="table-view-container" class="hidden bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="bg-slate-100 text-slate-700 border-b border-slate-200 font-semibold">
+              <th class="p-3.5 w-12 text-center">No</th>
+              <th class="p-3.5">Program Studi</th>
+              <th class="p-3.5">Jenjang</th>
+              <th class="p-3.5">Fakultas</th>
+              <th class="p-3.5">Rumpun</th>
+              <th class="p-3.5 text-right">Daya Tampung</th>
+              <th class="p-3.5 text-center">Akreditasi</th>
+              <th class="p-3.5 text-center">Internasional</th>
+              <th class="p-3.5 text-center">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="directory-table-body" class="divide-y divide-slate-100 text-slate-700">
+            <!-- Dynamically populated rows -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Open Data Export Section -->
+    <div class="bg-gradient-to-r from-slate-900 to-amber-950 text-white p-6 rounded-2xl shadow-sm flex flex-col md:flex-row items-center justify-between gap-4 mt-6 border border-amber-900/30">
+      <div>
+        <h4 id="export-title" class="text-base font-bold">Unduh Dataset Terbuka (Open Educational Data)</h4>
+        <p id="export-desc" class="text-xs text-slate-300 mt-1">Seluruh basis data 85 program studi Universitas Indonesia tersedia secara gratis dalam format terbuka JSON dan CSV untuk riset, analisis data, dan edukasi.</p>
+      </div>
+      <div class="flex items-center space-x-2.5 shrink-0">
+        <a href="data/ui_prodi.json" download class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold text-xs transition inline-flex items-center space-x-1.5">
+          <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          <span>Unduh JSON</span>
+        </a>
+        <a href="data/ui_prodi.csv" download class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold text-xs transition shadow-sm inline-flex items-center space-x-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          <span>Unduh CSV</span>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 space-y-1.5">
+      <p id="footer-source">Data dihimpun dari portal resmi <strong>Penerimaan Universitas Indonesia (penerimaan.ui.ac.id)</strong> dan <strong>BPPP Kemendikbudristek</strong>.</p>
+      <p class="text-slate-400"><span id="footer-license">Dirilis di bawah Lisensi Terbuka MIT untuk kepentingan calon mahasiswa dan masyarakat luas.</span></p>
+    </div>
+  </footer>
+
+  <!-- Include Dataset Script -->
+  <script src="data/ui_prodi.js"></script>
+
+  <!-- Base Application Logic -->
+  <script>
+    let currentLang = localStorage.getItem('ui_dir_lang') || 'id';
+    let currentView = 'grid';
+    let prodiData = window.UI_PRODI_DATA || [];
+    let facultyMap = window.UI_FACULTIES || {};
+
+    const I18N = {
+      id: {
+        announcement_text: "Basis Data Resmi Direktori Program Studi Universitas Indonesia • Veritas, Probitas, Iustitia",
+        announcement_updated: "Diperbarui: 04 Oktober 2026",
+        nav_title: "Direktori Program Studi & Akreditasi UI",
+        nav_subtitle: "Universitas Indonesia • Kampus Depok & Salemba • SNBP, SNBT, SIMAK UI",
+        hero_pill: "Pusat Informasi Akademik & Daya Tampung Resmi",
+        hero_title: "Eksplorasi Program Studi & Daya Tampung Universitas Indonesia",
+        hero_desc: "Temukan informasi komprehensif mengenai seluruh jenjang pendidikan (S1, Vokasi D3/D4, Pascasarjana S2/S3), daya tampung jalur seleksi SNBP, SNBT, dan SIMAK UI, akreditasi internasional (AACSB, ABET, IABEE, AUN-QA), kurikulum, serta prospek karir di Universitas Indonesia.",
+        stat_prodi_lbl: "Total Program Studi",
+        stat_s1_lbl: "Sarjana (S1)",
+        stat_vokasi_lbl: "Vokasi (D3/D4)",
+        stat_fakultas_lbl: "Fakultas & Sekolah",
+        stat_intl_lbl: "Akreditasi Global",
+        lbl_search: "Cari Program Studi / Fakultas:",
+        lbl_jenjang: "Jenjang Pendidikan:",
+        lbl_fakultas: "Fakultas / Sekolah:",
+        lbl_rumpun: "Rumpun Keilmuan:",
+        lbl_lokasi: "Lokasi Kampus:",
+        lbl_intl_only: "Hanya Akreditasi Internasional (AACSB / ABET / AUN)",
+        lbl_showing: "Menampilkan",
+        lbl_of: "dari",
+        export_title: "Unduh Dataset Terbuka (Open Educational Data)",
+        export_desc: "Seluruh basis data 85 program studi Universitas Indonesia tersedia secara gratis dalam format terbuka JSON dan CSV untuk riset, analisis data, dan edukasi.",
+        footer_source: "Data dihimpun dari portal resmi Penerimaan Universitas Indonesia (penerimaan.ui.ac.id) dan BPPP Kemendikbudristek.",
+        footer_license: "Dirilis di bawah Lisensi Terbuka MIT untuk kepentingan calon mahasiswa dan masyarakat luas."
+      },
+      en: {
+        announcement_text: "Official Study Programs Directory of Universitas Indonesia • Veritas, Probitas, Iustitia",
+        announcement_updated: "Updated: 04 October 2026",
+        nav_title: "UI Study Programs & Accreditation Directory",
+        nav_subtitle: "University of Indonesia • Depok & Salemba Campuses • SNBP, SNBT, SIMAK UI",
+        hero_pill: "Official Academic & Admission Quota Directory",
+        hero_title: "Explore Programs & Quotas at Universitas Indonesia",
+        hero_desc: "Explore comprehensive insights across undergraduate (S1), vocational (D3/D4), and postgraduate (S2/S3) programs, admission quotas for SNBP, SNBT, and SIMAK UI, global accreditations (AACSB, ABET, IABEE, AUN-QA), curriculum, and career pathways.",
+        stat_prodi_lbl: "Total Study Programs",
+        stat_s1_lbl: "Undergraduate (S1)",
+        stat_vokasi_lbl: "Vocational (D3/D4)",
+        stat_fakultas_lbl: "Faculties & Schools",
+        stat_intl_lbl: "Global Accreditations",
+        lbl_search: "Search Program / Faculty:",
+        lbl_jenjang: "Degree Level:",
+        lbl_fakultas: "Faculty / School:",
+        lbl_rumpun: "Academic Discipline:",
+        lbl_lokasi: "Campus Location:",
+        lbl_intl_only: "International Accreditation Only (AACSB / ABET / AUN)",
+        lbl_showing: "Showing",
+        lbl_of: "of",
+        export_title: "Download Open Educational Dataset",
+        export_desc: "Complete dataset covering 85 Universitas Indonesia programs is available freely in open JSON and CSV formats for researchers, students, and educators.",
+        footer_source: "Compiled from official Universitas Indonesia Admission Portal (penerimaan.ui.ac.id) and BPPP Kemendikbudristek.",
+        footer_license: "Released under open-source MIT License for public educational empowerment."
+      }
+    };
+
+    function initApp() {
+      applyLanguage(currentLang);
+      populateFacultyDropdown();
+      renderDirectory();
+    }
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('ui_dir_lang', lang);
+      const t = I18N[lang];
+
+      document.getElementById('lang-label-id').className = lang === 'id' ? "font-bold text-yellow-400" : "font-normal text-slate-400";
+      document.getElementById('lang-label-en').className = lang === 'en' ? "font-bold text-yellow-400" : "font-normal text-slate-400";
+
+      document.getElementById('announcement-text').textContent = t.announcement_text;
+      document.getElementById('announcement-updated').textContent = t.announcement_updated;
+      document.getElementById('nav-title').textContent = t.nav_title;
+      document.getElementById('nav-subtitle').textContent = t.nav_subtitle;
+      document.getElementById('hero-pill').textContent = t.hero_pill;
+      document.getElementById('hero-title').textContent = t.hero_title;
+      document.getElementById('hero-desc').textContent = t.hero_desc;
+
+      document.getElementById('stat-prodi-lbl').textContent = t.stat_prodi_lbl;
+      document.getElementById('stat-s1-lbl').textContent = t.stat_s1_lbl;
+      document.getElementById('stat-vokasi-lbl').textContent = t.stat_vokasi_lbl;
+      document.getElementById('stat-fakultas-lbl').textContent = t.stat_fakultas_lbl;
+      document.getElementById('stat-intl-lbl').textContent = t.stat_intl_lbl;
+
+      document.getElementById('lbl-search').textContent = t.lbl_search;
+      document.getElementById('lbl-jenjang').textContent = t.lbl_jenjang;
+      document.getElementById('lbl-fakultas').textContent = t.lbl_fakultas;
+      document.getElementById('lbl-rumpun').textContent = t.lbl_rumpun;
+      document.getElementById('lbl-lokasi').textContent = t.lbl_lokasi;
+      document.getElementById('lbl-intl-only').textContent = t.lbl_intl_only;
+      document.getElementById('lbl-showing').textContent = t.lbl_showing;
+      document.getElementById('lbl-of').textContent = t.lbl_of;
+
+      document.getElementById('export-title').textContent = t.export_title;
+      document.getElementById('export-desc').textContent = t.export_desc;
+      document.getElementById('footer-source').innerHTML = t.footer_source;
+      document.getElementById('footer-license').textContent = t.footer_license;
+    }
+
+    document.getElementById('lang-toggle-btn').addEventListener('click', () => {
+      applyLanguage(currentLang === 'id' ? 'en' : 'id');
+      renderDirectory();
+    });
+
+    function populateFacultyDropdown() {
+      const select = document.getElementById('filter-fakultas');
+      const faculties = Object.values(facultyMap).sort((a,b) => a.singkatan.localeCompare(b.singkatan));
+      select.innerHTML = '<option value="ALL">Semua Fakultas (' + faculties.length + ' Unit)</option>' +
+        faculties.map(f => `<option value="${f.singkatan}">${f.singkatan} - ${f.nama}</option>`).join('');
+    }
+
+    function setViewMode(mode) {
+      currentView = mode;
+      document.getElementById('view-grid-btn').className = mode === 'grid' ? "px-2.5 py-1 rounded-lg bg-white text-slate-900 shadow-sm transition font-semibold" : "px-2.5 py-1 rounded-lg text-slate-600 transition font-medium";
+      document.getElementById('view-table-btn').className = mode === 'table' ? "px-2.5 py-1 rounded-lg bg-white text-slate-900 shadow-sm transition font-semibold" : "px-2.5 py-1 rounded-lg text-slate-600 transition font-medium";
+
+      if (mode === 'grid') {
+        document.getElementById('cards-grid-container').classList.remove('hidden');
+        document.getElementById('table-view-container').classList.add('hidden');
+      } else {
+        document.getElementById('cards-grid-container').classList.add('hidden');
+        document.getElementById('table-view-container').classList.remove('hidden');
+      }
+    }
+
+    function resetFilters() {
+      document.getElementById('filter-search').value = '';
+      document.getElementById('filter-jenjang').value = 'ALL';
+      document.getElementById('filter-fakultas').value = 'ALL';
+      document.getElementById('filter-rumpun').value = 'ALL';
+      document.getElementById('filter-lokasi').value = 'ALL';
+      document.getElementById('filter-intl').checked = false;
+      renderDirectory();
+    }
+
+    function getFilteredData() {
+      const q = document.getElementById('filter-search').value.toLowerCase().trim();
+      const jenjang = document.getElementById('filter-jenjang').value;
+      const fakultas = document.getElementById('filter-fakultas').value;
+      const rumpun = document.getElementById('filter-rumpun').value;
+      const lokasi = document.getElementById('filter-lokasi').value;
+      const intlOnly = document.getElementById('filter-intl').checked;
+
+      return prodiData.filter(item => {
+        if (jenjang !== 'ALL' && item.jenjang !== jenjang) return false;
+        if (fakultas !== 'ALL' && item.fakultas_singkatan !== fakultas) return false;
+        if (rumpun !== 'ALL' && item.rumpun !== rumpun) return false;
+        if (lokasi !== 'ALL' && !item.lokasi.includes(lokasi)) return false;
+        if (intlOnly && (!item.akreditasi_internasional || item.akreditasi_internasional.length === 0)) return false;
+
+        if (q) {
+          const matchName = item.nama.toLowerCase().includes(q) || (item.nama_en && item.nama_en.toLowerCase().includes(q));
+          const matchFak = item.fakultas.toLowerCase().includes(q) || item.fakultas_singkatan.toLowerCase().includes(q);
+          const matchCode = item.kode.toLowerCase().includes(q);
+          const matchLoc = item.lokasi.toLowerCase().includes(q);
+          if (!matchName && !matchFak && !matchCode && !matchLoc) return false;
+        }
+
+        return true;
+      });
+    }
+
+    function renderDirectory() {
+      const filtered = getFilteredData();
+      document.getElementById('filter-count-val').textContent = filtered.length;
+      document.getElementById('filter-total-val').textContent = prodiData.length;
+
+      renderCards(filtered);
+      renderTable(filtered);
+    }
+
+    function renderCards(list) {
+      const container = document.getElementById('cards-grid-container');
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-12 text-center bg-white rounded-2xl border border-slate-200 p-8 space-y-2">
+            <p class="text-sm font-semibold text-slate-700">Tidak ada program studi yang cocok dengan filter aktif.</p>
+            <p class="text-xs text-slate-500">Coba ubah kata kunci pencarian atau tekan tombol "Reset Filter".</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = list.map(item => {
+        const isEn = currentLang === 'en';
+        const title = isEn ? (item.nama_en || item.nama) : item.nama;
+        const jenjangClass = item.jenjang === 'S1' ? 'badge-s1' : (item.jenjang.startsWith('D') ? 'badge-vokasi' : 'badge-pasca');
+        const rumpunClass = 'badge-' + item.rumpun.toLowerCase();
+        
+        const intlPills = (item.akreditasi_internasional || []).map(a => 
+          `<span class="px-1.5 py-0.5 rounded text-[10px] font-bold badge-internasional">${a}</span>`
+        ).join(' ');
+
+        return `
+          <div onclick="openProdiModal('${item.id}')" class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm hover:shadow-md hover:border-amber-300 transition cursor-pointer flex flex-col justify-between group space-y-3">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between gap-1 flex-wrap">
+                <div class="flex items-center space-x-1.5">
+                  <span class="px-2 py-0.5 rounded-md text-[11px] font-bold ${jenjangClass}">${item.jenjang}</span>
+                  <span class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-slate-100 text-slate-700 border border-slate-200">${item.fakultas_singkatan}</span>
+                  <span class="px-2 py-0.5 rounded-md text-[11px] font-medium ${rumpunClass}">${item.rumpun}</span>
+                </div>
+                <span class="text-[11px] font-mono text-slate-400">#${item.kode}</span>
+              </div>
+              <h3 class="text-base font-extrabold text-slate-900 group-hover:text-amber-600 transition leading-snug">
+                ${title}
+              </h3>
+              <p class="text-xs text-slate-500 line-clamp-1">${item.fakultas}</p>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 space-y-2 text-xs">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500 text-[11px]">Daya Tampung:</span>
+                <span class="font-bold text-slate-800">${item.daya_tampung} kursi</span>
+              </div>
+              <div class="flex items-center justify-between flex-wrap gap-1">
+                <span class="px-2 py-0.5 rounded text-[11px] font-bold badge-unggul">${item.akreditasi}</span>
+                <div class="flex items-center space-x-1">${intlPills}</div>
+              </div>
+              <p class="text-[11px] text-slate-400 truncate">${item.lokasi}</p>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderTable(list) {
+      const tbody = document.getElementById('directory-table-body');
+      tbody.innerHTML = list.map((item, idx) => {
+        const isEn = currentLang === 'en';
+        const title = isEn ? (item.nama_en || item.nama) : item.nama;
+        const jenjangClass = item.jenjang === 'S1' ? 'badge-s1' : (item.jenjang.startsWith('D') ? 'badge-vokasi' : 'badge-pasca');
+        const rumpunClass = 'badge-' + item.rumpun.toLowerCase();
+        const intlBadge = (item.akreditasi_internasional || []).length > 0 
+          ? `<span class="px-2 py-0.5 rounded text-[11px] font-bold badge-internasional">${item.akreditasi_internasional.join(', ')}</span>`
+          : '<span class="text-slate-400">-</span>';
+
+        return `
+          <tr class="hover:bg-slate-50/80 transition cursor-pointer" onclick="openProdiModal('${item.id}')">
+            <td class="p-3.5 text-center text-slate-400">${idx + 1}</td>
+            <td class="p-3.5">
+              <span class="font-bold text-slate-900">${title}</span>
+              <span class="block text-[11px] text-slate-400 font-mono">Kode: ${item.kode}</span>
+            </td>
+            <td class="p-3.5">
+              <span class="px-2 py-0.5 rounded text-[11px] font-bold ${jenjangClass}">${item.jenjang}</span>
+            </td>
+            <td class="p-3.5 text-slate-700">${item.fakultas_singkatan}</td>
+            <td class="p-3.5">
+              <span class="px-2 py-0.5 rounded text-[11px] font-medium ${rumpunClass}">${item.rumpun}</span>
+            </td>
+            <td class="p-3.5 text-right font-bold text-slate-800">${item.daya_tampung}</td>
+            <td class="p-3.5 text-center">
+              <span class="px-2 py-0.5 rounded text-[11px] font-bold badge-unggul">${item.akreditasi}</span>
+            </td>
+            <td class="p-3.5 text-center">${intlBadge}</td>
+            <td class="p-3.5 text-center">
+              <button onclick="event.stopPropagation(); openProdiModal('${item.id}')" class="px-2.5 py-1 rounded-lg bg-amber-100 hover:bg-amber-200 text-amber-900 font-semibold text-xs transition">
+                Detail
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    window.addEventListener('DOMContentLoaded', initApp);
+  </script>
+</body>
+</html>
