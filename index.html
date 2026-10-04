@@ -317,6 +317,115 @@
 
   </main>
 
+  <!-- ========================================== -->
+  <!-- MODAL DIALOG: DETAIL PROFIL PRODI          -->
+  <!-- ========================================== -->
+  <div id="prodi-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-sm hidden" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="modal-prodi-name">
+    <div id="modal-card" class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 flex flex-col relative">
+      
+      <!-- Modal Header -->
+      <div class="p-5 sm:p-6 border-b border-slate-100 relative bg-gradient-to-r from-amber-50/70 via-slate-50 to-white">
+        <button id="modal-close-btn" onclick="closeProdiModal()" class="p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition absolute top-4 right-4" title="Tutup / Close">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+
+        <div class="pr-8 space-y-1.5">
+          <div class="flex items-center space-x-2 flex-wrap gap-y-1">
+            <span id="modal-jenjang-badge" class="px-2.5 py-0.5 rounded-md text-xs font-bold text-white bg-slate-900"></span>
+            <span id="modal-fakultas-badge" class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-900 border border-amber-300"></span>
+            <span id="modal-rumpun-badge" class="px-2 py-0.5 rounded text-[11px] font-semibold"></span>
+            <span id="modal-lokasi-badge" class="px-2 py-0.5 rounded text-[11px] font-medium bg-slate-100 text-slate-700 border border-slate-200"></span>
+            <span id="modal-kode" class="text-xs font-mono text-slate-400"></span>
+          </div>
+          <h2 id="modal-prodi-name" class="text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight"></h2>
+          <p id="modal-fakultas-full" class="text-xs sm:text-sm text-slate-600 font-medium"></p>
+          <div id="modal-intl-container" class="flex items-center space-x-1.5 pt-1 flex-wrap gap-y-1"></div>
+        </div>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-5 sm:p-6 space-y-5 text-sm text-slate-700">
+        
+        <!-- Quotas Breakdown Grid -->
+        <div class="space-y-1.5">
+          <h4 id="modal-sec-quota" class="text-xs font-bold text-slate-500 uppercase tracking-wider">Alokasi Kuota Daya Tampung</h4>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center">
+              <span class="block text-[11px] text-slate-500 font-medium">Total Kuota</span>
+              <span id="modal-dt-total" class="text-lg font-extrabold text-slate-900">0</span>
+            </div>
+            <div class="p-3 rounded-xl bg-blue-50/70 border border-blue-200 text-center">
+              <span class="block text-[11px] text-blue-700 font-medium">SNBP</span>
+              <span id="modal-dt-snbp" class="text-lg font-extrabold text-blue-900">0</span>
+            </div>
+            <div class="p-3 rounded-xl bg-emerald-50/70 border border-emerald-200 text-center">
+              <span class="block text-[11px] text-emerald-700 font-medium">SNBT</span>
+              <span id="modal-dt-snbt" class="text-lg font-extrabold text-emerald-900">0</span>
+            </div>
+            <div class="p-3 rounded-xl bg-amber-50/70 border border-amber-200 text-center">
+              <span class="block text-[11px] text-amber-700 font-medium">SIMAK UI</span>
+              <span id="modal-dt-simak" class="text-lg font-extrabold text-amber-900">0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description Section -->
+        <div class="space-y-1.5">
+          <h4 id="modal-sec-desc" class="text-xs font-bold text-amber-800 tracking-wider uppercase">Tentang Program Studi</h4>
+          <p id="modal-desc" class="text-xs sm:text-sm text-slate-600 leading-relaxed bg-slate-50 p-3.5 rounded-xl border border-slate-100"></p>
+        </div>
+
+        <!-- Curriculum Learning Focus -->
+        <div class="space-y-2">
+          <h4 id="modal-sec-focus" class="text-xs font-bold text-amber-800 tracking-wider uppercase">Fokus Kurikulum &amp; Pembelajaran</h4>
+          <ul id="modal-focus-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs"></ul>
+        </div>
+
+        <!-- Career Pathways -->
+        <div class="space-y-2">
+          <h4 id="modal-sec-career" class="text-xs font-bold text-amber-800 tracking-wider uppercase">Prospek Karir Lulusan</h4>
+          <div id="modal-career-tags" class="flex flex-wrap gap-1.5"></div>
+        </div>
+
+        <!-- UKT Reference -->
+        <div class="space-y-1.5 bg-amber-50/50 p-3.5 rounded-xl border border-amber-200">
+          <h4 id="modal-sec-ukt" class="text-xs font-bold text-amber-900 tracking-wider uppercase">Referensi Biaya Pendidikan (UKT)</h4>
+          <p id="modal-ukt-info" class="text-xs text-amber-950 font-medium"></p>
+          <p class="text-[11px] text-amber-700">Penetapan UKT Berkeadilan disesuaikan dengan verifikasi kemampuan finansial penanggung biaya.</p>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-4 sm:p-5 bg-slate-50 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2 text-xs font-semibold">
+        <button id="modal-btn-copy" onclick="copyModalLink()" class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 transition shadow-sm inline-flex items-center space-x-1.5">
+          <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          <span id="modal-lbl-copy">Salin Tautan</span>
+        </button>
+        <div class="flex items-center space-x-2">
+          <a id="modal-link-simak" href="https://penerimaan.ui.ac.id" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-xl bg-amber-100 hover:bg-amber-200 text-amber-900 transition border border-amber-300 inline-flex items-center space-x-1">
+            <span id="modal-lbl-simak">Portal SIMAK UI</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+          <a id="modal-link-web" href="#" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white transition shadow-sm inline-flex items-center space-x-1">
+            <span id="modal-lbl-web">Website Prodi</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+          <button onclick="closeProdiModal()" class="px-4 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 transition">
+            Tutup
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition duration-300 ease-out bg-slate-900 text-white text-xs px-4 py-2.5 rounded-xl shadow-lg flex items-center space-x-2 pointer-events-none">
+    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    <span id="toast-message">Tautan berhasil disalin</span>
+  </div>
+
   <!-- Footer -->
   <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500 mt-auto">
     <div class="max-w-7xl mx-auto px-4 space-y-1.5">
@@ -334,6 +443,7 @@
     let currentView = 'grid';
     let prodiData = window.UI_PRODI_DATA || [];
     let facultyMap = window.UI_FACULTIES || {};
+    let activeModalProdiId = null;
 
     const I18N = {
       id: {
@@ -359,6 +469,15 @@
         lbl_of: "dari",
         export_title: "Unduh Dataset Terbuka (Open Educational Data)",
         export_desc: "Seluruh basis data 85 program studi Universitas Indonesia tersedia secara gratis dalam format terbuka JSON dan CSV untuk riset, analisis data, dan edukasi.",
+        modal_sec_quota: "Alokasi Kuota Daya Tampung",
+        modal_sec_desc: "Tentang Program Studi",
+        modal_sec_focus: "Fokus Kurikulum & Pembelajaran",
+        modal_sec_career: "Prospek Karir Lulusan",
+        modal_sec_ukt: "Referensi Biaya Pendidikan (UKT)",
+        modal_lbl_copy: "Salin Tautan",
+        modal_lbl_simak: "Portal SIMAK UI",
+        modal_lbl_web: "Website Resmi",
+        toast_copied: "Tautan program studi berhasil disalin!",
         footer_source: "Data dihimpun dari portal resmi Penerimaan Universitas Indonesia (penerimaan.ui.ac.id) dan BPPP Kemendikbudristek.",
         footer_license: "Dirilis di bawah Lisensi Terbuka MIT untuk kepentingan calon mahasiswa dan masyarakat luas."
       },
@@ -385,6 +504,15 @@
         lbl_of: "of",
         export_title: "Download Open Educational Dataset",
         export_desc: "Complete dataset covering 85 Universitas Indonesia programs is available freely in open JSON and CSV formats for researchers, students, and educators.",
+        modal_sec_quota: "Admission Quotas & Allocations",
+        modal_sec_desc: "Program Overview",
+        modal_sec_focus: "Core Curriculum Focus",
+        modal_sec_career: "Career Prospects",
+        modal_sec_ukt: "Tuition Fee Reference (UKT)",
+        modal_lbl_copy: "Copy Link",
+        modal_lbl_simak: "SIMAK UI Portal",
+        modal_lbl_web: "Official Website",
+        toast_copied: "Study program permalink copied to clipboard!",
         footer_source: "Compiled from official Universitas Indonesia Admission Portal (penerimaan.ui.ac.id) and BPPP Kemendikbudristek.",
         footer_license: "Released under open-source MIT License for public educational empowerment."
       }
@@ -394,6 +522,7 @@
       applyLanguage(currentLang);
       populateFacultyDropdown();
       renderDirectory();
+      handleUrlParams();
     }
 
     function applyLanguage(lang) {
@@ -427,10 +556,23 @@
       document.getElementById('lbl-showing').textContent = t.lbl_showing;
       document.getElementById('lbl-of').textContent = t.lbl_of;
 
+      document.getElementById('modal-sec-quota').textContent = t.modal_sec_quota;
+      document.getElementById('modal-sec-desc').textContent = t.modal_sec_desc;
+      document.getElementById('modal-sec-focus').textContent = t.modal_sec_focus;
+      document.getElementById('modal-sec-career').textContent = t.modal_sec_career;
+      document.getElementById('modal-sec-ukt').textContent = t.modal_sec_ukt;
+      document.getElementById('modal-lbl-copy').textContent = t.modal_lbl_copy;
+      document.getElementById('modal-lbl-simak').textContent = t.modal_lbl_simak;
+      document.getElementById('modal-lbl-web').textContent = t.modal_lbl_web;
+
       document.getElementById('export-title').textContent = t.export_title;
       document.getElementById('export-desc').textContent = t.export_desc;
       document.getElementById('footer-source').innerHTML = t.footer_source;
       document.getElementById('footer-license').textContent = t.footer_license;
+
+      if (activeModalProdiId) {
+        populateModalData(activeModalProdiId);
+      }
     }
 
     document.getElementById('lang-toggle-btn').addEventListener('click', () => {
@@ -599,6 +741,165 @@
         `;
       }).join('');
     }
+
+    // ==========================================
+    // MODAL DIALOG LOGIC & CONTROLLER
+    // ==========================================
+    function openProdiModal(id) {
+      activeModalProdiId = id;
+      populateModalData(id);
+
+      const modal = document.getElementById('prodi-modal');
+      modal.classList.remove('hidden');
+      modal.style.display = 'flex';
+      document.body.classList.add('overflow-hidden');
+
+      // Sync URL parameter
+      const url = new URL(window.location);
+      url.searchParams.set('prodi', id);
+      url.searchParams.set('lang', currentLang);
+      window.history.replaceState({}, '', url);
+    }
+
+    function populateModalData(id) {
+      const item = prodiData.find(p => p.id === id);
+      if (!item) return;
+
+      const isEn = currentLang === 'en';
+      document.getElementById('modal-prodi-name').textContent = isEn ? (item.nama_en || item.nama) : item.nama;
+      document.getElementById('modal-fakultas-full').textContent = item.fakultas;
+      document.getElementById('modal-kode').textContent = `Kode: ${item.kode}`;
+      
+      const jenjangBadge = document.getElementById('modal-jenjang-badge');
+      jenjangBadge.textContent = item.jenjang;
+
+      const fakBadge = document.getElementById('modal-fakultas-badge');
+      fakBadge.textContent = item.fakultas_singkatan;
+
+      const rumpunBadge = document.getElementById('modal-rumpun-badge');
+      rumpunBadge.textContent = item.rumpun;
+      rumpunBadge.className = `px-2 py-0.5 rounded text-[11px] font-semibold badge-${item.rumpun.toLowerCase()}`;
+
+      const lokasiBadge = document.getElementById('modal-lokasi-badge');
+      lokasiBadge.textContent = item.lokasi;
+
+      // International Accreditation Badges
+      const intlContainer = document.getElementById('modal-intl-container');
+      if (item.akreditasi_internasional && item.akreditasi_internasional.length > 0) {
+        intlContainer.innerHTML = item.akreditasi_internasional.map(a => 
+          `<span class="px-2 py-0.5 rounded text-[11px] font-bold badge-internasional">Terakreditasi ${a}</span>`
+        ).join('');
+      } else {
+        intlContainer.innerHTML = `<span class="px-2 py-0.5 rounded text-[11px] font-medium badge-unggul">Terakreditasi Nasional ${item.akreditasi}</span>`;
+      }
+
+      // Quotas
+      document.getElementById('modal-dt-total').textContent = `${item.daya_tampung}`;
+      document.getElementById('modal-dt-snbp').textContent = `${item.dt_snbp}`;
+      document.getElementById('modal-dt-snbt').textContent = `${item.dt_snbt}`;
+      document.getElementById('modal-dt-simak').textContent = `${item.dt_simak}`;
+
+      // Description
+      const descObj = item.deskripsi || {};
+      document.getElementById('modal-desc').textContent = isEn ? (descObj.en || descObj.id) : (descObj.id || descObj.en);
+
+      // Curriculum Focus
+      const focusList = document.getElementById('modal-focus-list');
+      const focusArr = (item.fokus && (isEn ? item.fokus.en : item.fokus.id)) || [];
+      focusList.innerHTML = focusArr.map(f => 
+        `<li class="flex items-start space-x-2 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+           <svg class="w-4 h-4 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+           <span class="text-slate-700 leading-snug">${f}</span>
+         </li>`
+      ).join('');
+
+      // Career Tags
+      const careerTags = document.getElementById('modal-career-tags');
+      const careerArr = (item.karir && (isEn ? item.karir.en : item.karir.id)) || [];
+      careerTags.innerHTML = careerArr.map(c => 
+        `<span class="px-2.5 py-1 rounded-lg bg-amber-50 text-amber-900 border border-amber-200 text-xs font-medium">
+           ${c}
+         </span>`
+      ).join('');
+
+      // UKT Reference
+      document.getElementById('modal-ukt-info').textContent = item.ukt_rentang || 'Mengikuti penetapan UKT Berkeadilan Universitas Indonesia';
+
+      // Website Link
+      const webLink = document.getElementById('modal-link-web');
+      if (item.website) {
+        webLink.href = item.website;
+        webLink.style.display = 'inline-flex';
+      } else {
+        webLink.style.display = 'none';
+      }
+    }
+
+    function closeProdiModal() {
+      activeModalProdiId = null;
+      const modal = document.getElementById('prodi-modal');
+      modal.classList.add('hidden');
+      modal.style.display = 'none';
+      document.body.classList.remove('overflow-hidden');
+
+      // Remove prodi param from URL
+      const url = new URL(window.location);
+      url.searchParams.delete('prodi');
+      window.history.replaceState({}, '', url);
+    }
+
+    function copyModalLink() {
+      if (!activeModalProdiId) return;
+      const url = new URL(window.location.origin + window.location.pathname);
+      url.searchParams.set('prodi', activeModalProdiId);
+      url.searchParams.set('lang', currentLang);
+
+      navigator.clipboard.writeText(url.toString()).then(() => {
+        showToast(I18N[currentLang].toast_copied);
+      }).catch(() => {
+        showToast('Gagal menyalin tautan');
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      toastMsg.textContent = msg;
+
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 2500);
+    }
+
+    function handleUrlParams() {
+      const params = new URLSearchParams(window.location.search);
+      const langParam = params.get('lang');
+      if (langParam === 'en' || langParam === 'id') {
+        applyLanguage(langParam);
+      }
+      const prodiParam = params.get('prodi');
+      if (prodiParam && prodiData.some(p => p.id === prodiParam)) {
+        openProdiModal(prodiParam);
+      }
+    }
+
+    // Close on backdrop click
+    document.getElementById('prodi-modal').addEventListener('click', (e) => {
+      if (e.target.id === 'prodi-modal') {
+        closeProdiModal();
+      }
+    });
+
+    // Close on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && activeModalProdiId) {
+        closeProdiModal();
+      }
+    });
 
     window.addEventListener('DOMContentLoaded', initApp);
   </script>
