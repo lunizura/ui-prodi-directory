@@ -1,0 +1,22 @@
+name: Feature Proposal
+description: Propose a new visual filter, UI capability, or comparison feature for UI directory.
+title: "[FEAT]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: Share your ideas to improve the Universitas Indonesia directory explorer.
+  - type: textarea
+    id: feature_description
+    attributes:
+      label: Proposed Feature
+      description: Clearly describe the feature you would like to see added.
+    validations:
+      required: true
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Target Audience & Use Case
+      description: How will this feature assist prospective applicants, students, or counselors?
+    validations:
+      required: true
