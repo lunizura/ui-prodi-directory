@@ -1,0 +1,30 @@
+name: Academic Data Correction
+description: Report an outdated, inaccurate, or missing academic study program detail for UI.
+title: "[DATA]: "
+labels: ["data-correction", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for helping keep the Universitas Indonesia Study Programs Directory accurate.
+  - type: input
+    id: prodi_name
+    attributes:
+      label: Study Program Name
+      description: Enter the official title of the study program.
+      placeholder: e.g. Ilmu Komputer, Kedokteran, Manajemen
+    validations:
+      required: true
+  - type: textarea
+    id: correction_details
+    attributes:
+      label: Discrepancy Description
+      description: Describe what data point is outdated (quota, accreditation, faculty, career prospect).
+    validations:
+      required: true
+  - type: input
+    id: official_source
+    attributes:
+      label: Official Source Link
+      description: Link to official UI admission portal (simak.ui.ac.id / penerimaan.ui.ac.id) or BAN-PT registry.
+    validations:
+      required: true
