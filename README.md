@@ -2,10 +2,12 @@
 ### Universitas Indonesia Study Programs & Accreditation Directory
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Build Status: CI](https://img.shields.io/badge/Build-Passing-brightgreen.svg)](.github/workflows/ci.yml)
 [![Data Source](https://img.shields.io/badge/Data%20Source-Penerimaan%20UI-f59e0b.svg)](https://penerimaan.ui.ac.id)
 [![Total Study Programs](https://img.shields.io/badge/Total%20Prodi-85-emerald.svg)](#ringkasan-data)
 [![Akreditasi Unggul](https://img.shields.io/badge/Unggul-85%20Prodi-gold.svg)](#ringkasan-data)
 [![Akreditasi Internasional](https://img.shields.io/badge/Internasional-62%20Prodi-teal.svg)](#ringkasan-data)
+[![Zero Emojis](https://img.shields.io/badge/Compliance-Zero%20Emojis-green.svg)](tests/test_ui_directory.py)
 [![Deployment](https://img.shields.io/badge/Deployment-GitHub%20Pages%20Ready-brightgreen.svg)](https://lunizura.github.io/ui-prodi-directory/)
 
 [Bahasa Indonesia](#bahasa-indonesia) | [English](#english)
@@ -38,7 +40,6 @@ Dibuat untuk calon mahasiswa (persiapan seleksi SNBP, SNBT, SIMAK UI, dan PPKB),
 - **Deep Linking & Berbagi Tautan:** Buka profil program studi tertentu langsung melalui parameter URL (`?prodi={id}`) dan salin tautan instan dengan notifikasi toast.
 - **Tampilan Fleksibel:** Beralih antara visual kisi kartu (grid view) dan tabel ringkas (table view).
 - **Distribusi Data Terbuka (Open Data):** Dataset lengkap tersedia bebas dalam format JSON dan CSV.
-- **Zero-Dependency Deployment:** Siap dijalankan langsung melalui GitHub Pages tanpa proses build atau bundler eksternal.
 
 ### Ringkasan Data
 
@@ -55,56 +56,86 @@ Berdasarkan kompilasi data resmi Penerimaan Universitas Indonesia dan BPPP Kemen
 | **Fakultas & Sekolah Pengelola** | 17 unit | 14 Fakultas, 2 Sekolah Pascasarjana, 1 Program Vokasi |
 | **Sebaran Kampus** | 2 lokasi | Kampus Depok (Jawa Barat) & Kampus Salemba (Jakarta Pusat) |
 
-### Jalur Seleksi Masuk Universitas Indonesia
+---
 
-1. **SNBP (Seleksi Nasional Berdasarkan Prestasi):** Penjaringan berdasarkan nilai rapor dan prestasi akademik/non-akademik siswa SMA/SMK/MA sederajat.
-2. **SNBT (Seleksi Nasional Berdasarkan Tes):** Seleksi nasional berbasis Ujian Tulis Berbasis Komputer (UTBK).
-3. **SIMAK UI (Seleksi Masuk UI):** Ujian tulis mandiri berskala nasional yang diselenggarakan langsung oleh Universitas Indonesia untuk jenjang Vokasi, S1 Reguler, S1 Paralel, dan S1 Kelas Khusus Internasional (KKI).
-4. **Talent Scouting & PPKB:** Jalur seleksi prestasi rapor khusus bagi sekolah mitra untuk jenjang Sarjana dan Vokasi.
+## Direktori Dokumentasi Fakultas UI
+
+Seluruh profil akademik resmi fakultas di Universitas Indonesia telah didokumentasikan dalam direktori markdown:
+
+| Singkatan | Nama Fakultas / Unit Akademik | Lokasi Kampus | Dokumen Panduan |
+|---|---|---|---|
+| **FK** | Fakultas Kedokteran | Salemba & Depok | [docs/faculties/fk.md](docs/faculties/fk.md) |
+| **FASILKOM** | Fakultas Ilmu Komputer | Depok | [docs/faculties/fasilkom.md](docs/faculties/fasilkom.md) |
+| **FT** | Fakultas Teknik | Depok | [docs/faculties/ft.md](docs/faculties/ft.md) |
+| **FEB** | Fakultas Ekonomi dan Bisnis | Depok | [docs/faculties/feb.md](docs/faculties/feb.md) |
+| **FH** | Fakultas Hukum | Depok | [docs/faculties/fh.md](docs/faculties/fh.md) |
+| **FISIP** | Fakultas Ilmu Sosial dan Ilmu Politik | Depok | [docs/faculties/fisip.md](docs/faculties/fisip.md) |
+| **FPsi** | Fakultas Psikologi | Depok | [docs/faculties/fpsi.md](docs/faculties/fpsi.md) |
+| **FMIPA** | Fakultas Matematika dan Ilmu Pengetahuan Alam | Depok | [docs/faculties/fmipa.md](docs/faculties/fmipa.md) |
+| **FKG & FF** | Fakultas Kedokteran Gigi & Fakultas Farmasi | Salemba & Depok | [docs/faculties/fkg_ff.md](docs/faculties/fkg_ff.md) |
+| **FKM & FIK** | Fakultas Kesehatan Masyarakat & Keperawatan | Depok | [docs/faculties/fkm_fik.md](docs/faculties/fkm_fik.md) |
+| **FIB & FIA** | Ilmu Pengetahuan Budaya & Ilmu Administrasi | Depok | [docs/faculties/fib_fia.md](docs/faculties/fib_fia.md) |
 
 ---
 
-## English
+## Panduan Penerimaan dan Kampus
 
-An open educational data repository and interactive web directory for all study programs, accreditation ratings (National and International), academic disciplines, campus locations, admission quotas, and faculties at **Universitas Indonesia (UI)**, Depok and Salemba.
+- **Panduan Ujian SIMAK UI:** [docs/admissions/simak_ui.md](docs/admissions/simak_ui.md) - Mekanisme seleksi mandiri, materi ujian KD/IPA/IPS, dan KKI.
+- **Profil Multikampus Depok & Salemba:** [docs/campuses/depok_salemba.md](docs/campuses/depok_salemba.md) - Karakteristik kampus hijau Depok dan pusat medis Salemba.
+- **Panduan Kontributor:** [CONTRIBUTING.md](CONTRIBUTING.md) - Tata kelola kontribusi data, pengujian unit, dan standar bebas emoji.
+- **Kebijakan Keamanan:** [SECURITY.md](SECURITY.md) - Prosedur pelaporan celah kerentanan data.
+- **Kode Etik Komunitas:** [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) - Standar perilaku Contributor Covenant 2.1.
 
-Designed for prospective applicants (preparing for SNBP, SNBT, and SIMAK UI admissions), enrolled students, educational researchers, and software engineers seeking structured higher education open datasets.
+---
 
-### Key Features
+## Struktur Berkas Repositori
 
-- **Instant Search:** Search study programs by name, code, faculty, or location in real-time.
-- **Full Bilingual Support:** Switch seamlessly between **Indonesian** and **English** with URL parameter persistence (`?lang=id` or `?lang=en`).
-- **Comprehensive Program Profile Modal:** Inspect in-depth program cards:
-  - Official educational curriculum description (bilingual).
-  - Core learning focus and competencies.
-  - Graduate career pathways in corporate, clinical, and public sectors.
-  - Quota breakdown across SNBP, SNBT, and SIMAK UI tracks.
-  - Fair Tuition Fee (UKT Berkeadilan) bracket reference (Class 1 to 11).
-  - Direct links to official UI admission portals and faculty web pages.
-- **Multi-Category Filtering:**
-  - Degree Level: Bachelor (S1), Applied Bachelor (D4), Diploma 3 (D3), Master (S2), and Doctorate (S3).
-  - Faculty / School (17 Units): FK, FKG, FF, FKM, FIK, FMIPA, FT, FASILKOM, FH, FEB, FPsi, FISIP, FIA, FIB, Vocational Education Program, SKSG, and SIL.
-  - Scientific Cluster: Science & Technology (Saintek), Social Sciences & Humanities (Soshum), Healthcare, and Multidisciplinary.
-  - Campus Location: UI Depok Main Campus (West Java) and Salemba Campus (Central Jakarta).
-  - International Accreditation: Dedicated filter for programs accredited by global bodies (AACSB, ABET, IABEE, AUN-QA, RSC, AMBA).
-- **Deep Linking & Permalink Sharing:** Direct navigation to specific programs via URL (`?prodi={id}`) with one-click clipboard copying.
-- **Card Grid vs Data Table:** Toggle between responsive visual cards and dense data tables.
-- **Open Data Distribution:** Clean machine-readable datasets in JSON and CSV formats.
+```
+ui-prodi-directory/
+|-- .github/
+|   |-- workflows/
+|   |   `-- ci.yml             # GitHub Actions CI automated testing
+|   |-- ISSUE_TEMPLATE/
+|   |   |-- config.yml         # Community contact links
+|   |   |-- data_correction.yml# Issue template for data discrepancies
+|   |   `-- feature_request.yml# Issue template for feature proposals
+|   `-- pull_request_template.md # Pre-merge verification checklist
+|-- data/
+|   |-- ui_prodi.json          # Machine-readable JSON dataset of 85 study programs
+|   |-- ui_prodi.js            # Client-side JavaScript bundle for web directory
+|   |-- ui_prodi.csv           # Flat tabular CSV for spreadsheets and analysis
+|   `-- metadata.json          # Aggregate metrics and dataset verification numbers
+|-- docs/
+|   |-- admissions/
+|   |   `-- simak_ui.md        # Comprehensive SIMAK UI and admission pathways guide
+|   |-- campuses/
+|   |   `-- depok_salemba.md   # Profiles of UI Depok and UI Salemba campuses
+|   `-- faculties/
+|       |-- fasilkom.md        # Fakultas Ilmu Komputer profile
+|       |-- feb.md             # Fakultas Ekonomi dan Bisnis profile
+|       |-- fh.md              # Fakultas Hukum profile
+|       |-- fib_fia.md         # FIB and FIA profiles
+|       |-- fisip.md           # Fakultas Ilmu Sosial dan Ilmu Politik profile
+|       |-- fk.md              # Fakultas Kedokteran profile
+|       |-- fkg_ff.md          # FKG and Fakultas Farmasi profiles
+|       |-- fkm_fik.md         # FKM and FIK profiles
+|       |-- fmipa.md           # Fakultas Matematika dan IPA profile
+|       |-- fpsi.md            # Fakultas Psikologi profile
+|       `-- ft.md              # Fakultas Teknik profile
+|-- scripts/
+|   `-- build_ui_dataset.py    # Dataset builder script and parity validator
+|-- tests/
+|   `-- test_ui_directory.py   # Automated unittest suite
+|-- CODE_OF_CONDUCT.md         # Contributor Covenant 2.1 standards
+|-- CONTRIBUTING.md            # Contributor guidelines
+|-- index.html                 # Interactive bilingual web directory application
+|-- LICENSE                    # MIT open-source license
+|-- README.md                  # Master bilingual documentation
+`-- SECURITY.md                # Security vulnerability reporting protocol
+```
 
-### Dataset Metrics
+---
 
-| Metric | Count | Details |
-| :--- | :---: | :--- |
-| **Total Study Programs** | **85** | Across all faculties and academic tiers |
-| **Undergraduate (S1)** | 60 | National & SIMAK UI admission pathways |
-| **Vocational (D3/D4)** | 12 | Applied Bachelor D4 (6) and Diploma D3 (6) |
-| **Postgraduate (S2/S3)** | 13 | Master S2 (12) and Doctorate S3 (1) |
-| **Accredited Unggul / A** | 85 | 100% highest national tier |
-| **Internationally Accredited** | 62 | AACSB, ABET, IABEE, AUN-QA, RSC, AMBA |
-| **Managing Faculties & Schools** | 17 units | 14 Faculties, 2 Postgraduate Schools, 1 Vocational Program |
-| **Campus Campuses** | 2 hubs | Depok Campus (West Java) & Salemba Campus (Central Jakarta) |
+## Lisensi dan Hak Cipta
 
-### Data Citation & License
-
-- **Data Attribution:** Compiled from official publications of the Universitas Indonesia Admission Committee (`penerimaan.ui.ac.id`) and the Indonesian Ministry of Education, Culture, Research, and Technology (BPPP Kemendikbudristek).
-- **License:** Open educational and research use under the terms of the MIT License.
+Dirilis di bawah [Lisensi MIT](LICENSE). Data pendidikan dikompilasi dari publikasi resmi Penerimaan Universitas Indonesia (`penerimaan.ui.ac.id`) dan Kemendikbudristek/BPPP. Standar bebas emoji diterapkan secara ketat.
