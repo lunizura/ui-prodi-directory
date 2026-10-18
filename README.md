@@ -7,7 +7,6 @@
 [![Total Study Programs](https://img.shields.io/badge/Total%20Prodi-85-emerald.svg)](#ringkasan-data)
 [![Akreditasi Unggul](https://img.shields.io/badge/Unggul-85%20Prodi-gold.svg)](#ringkasan-data)
 [![Akreditasi Internasional](https://img.shields.io/badge/Internasional-62%20Prodi-teal.svg)](#ringkasan-data)
-[![Zero Emojis](https://img.shields.io/badge/Compliance-Zero%20Emojis-green.svg)](tests/test_ui_directory.py)
 [![Deployment](https://img.shields.io/badge/Deployment-GitHub%20Pages%20Ready-brightgreen.svg)](https://lunizura.github.io/ui-prodi-directory/)
 
 [Bahasa Indonesia](#bahasa-indonesia) | [English](#english)
@@ -82,7 +81,7 @@ Seluruh profil akademik resmi fakultas di Universitas Indonesia telah didokument
 
 - **Panduan Ujian SIMAK UI:** [docs/admissions/simak_ui.md](docs/admissions/simak_ui.md) - Mekanisme seleksi mandiri, materi ujian KD/IPA/IPS, dan KKI.
 - **Profil Multikampus Depok & Salemba:** [docs/campuses/depok_salemba.md](docs/campuses/depok_salemba.md) - Karakteristik kampus hijau Depok dan pusat medis Salemba.
-- **Panduan Kontributor:** [CONTRIBUTING.md](CONTRIBUTING.md) - Tata kelola kontribusi data, pengujian unit, dan standar bebas emoji.
+- **Panduan Kontributor:** [CONTRIBUTING.md](CONTRIBUTING.md) - Tata kelola kontribusi data dan pengujian unit.
 - **Kebijakan Keamanan:** [SECURITY.md](SECURITY.md) - Prosedur pelaporan celah kerentanan data.
 - **Kode Etik Komunitas:** [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) - Standar perilaku Contributor Covenant 2.1.
 
@@ -138,4 +137,4 @@ ui-prodi-directory/
 
 ## Lisensi dan Hak Cipta
 
-Dirilis di bawah [Lisensi MIT](LICENSE). Data pendidikan dikompilasi dari publikasi resmi Penerimaan Universitas Indonesia (`penerimaan.ui.ac.id`) dan Kemendikbudristek/BPPP. Standar bebas emoji diterapkan secara ketat.
+Dirilis di bawah [Lisensi MIT](LICENSE). Data pendidikan dikompilasi dari publikasi resmi Penerimaan Universitas Indonesia (`penerimaan.ui.ac.id`) dan Kemendikbudristek/BPPP.
